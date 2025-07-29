@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERMS - Menu Management</title>
+    <link rel="stylesheet" href="assets\css\styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="main-app">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i data-lucide="chef-hat"></i>
+                <h1>ERMS</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i data-lucide="bar-chart-3"></i>
+                    Dashboard
+                </a>
+                <a href="menu.html" class="nav-item active">
+                    <i data-lucide="menu"></i>
+                    Menu Management
+                </a>
+                <a href="order.html" class="nav-item">
+                    <i data-lucide="shopping-cart"></i>
+                    Orders
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <i data-lucide="user"></i>
+                    <div class="user-info">
+                        <p class="user-name" id="userName">Manager</p>
+                        <p class="user-role">Manager</p>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn">
+                    <i data-lucide="log-out"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div id="menuPage" class="page active">
+                <div class="page-header">
+                    <div>
+                        <h2>Menu Management</h2>
+                        <p>Manage your restaurant's menu items</p>
+                    </div>
+                    <button id="addMenuBtn" class="add-btn">
+                        <i data-lucide="plus"></i>
+                        Add New Item
+                    </button>
+                </div>
+                <div class="menu-controls">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="searchMenu" placeholder="Search menu items...">
+                    </div>
+                    <div class="filter-box">
+                        <label for="categoryFilter" class="visually-hidden">Filter by Category</label>
+                        <select id="categoryFilter" title="Filter by Category">
+                            <option value="All">All Categories</option>
+                            <option value="Appetizer">Appetizer</option>
+                            <option value="Main Course">Main Course</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+                        <i data-lucide="filter"></i>
+                    </div>
+                </div>
+                <div id="menuGrid" class="menu-grid"></div>
+            </div>
+            <!-- Menu Item Modal -->
+            <div id="menuModal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalTitle">Add New Menu Item</h3>
+                        <buttonbutton id="closeModal" title="Close" aria-label="Close modal">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="itemName">Item Name</label>
+                            <input type="text" id="itemName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category</label>
+                            <select id="itemCategory">
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Main Course">Main Course</option>
+                                <option value="Dessert">Dessert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice">Price ($)</label>
+                            <input type="number" id="itemPrice" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemStatus">Status</label>
+                            <select id="itemStatus">
+                                <option value="Available">Available</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="cancelModal" class="cancel-btn">Cancel</button>
+                            <button id="saveModal" class="save-btn">Add Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
