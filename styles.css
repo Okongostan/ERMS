@@ -913,7 +913,7 @@ body {
     
     .sidebar {
         width: 100%;
-        min-height: auto;
+        min-height: 0;
         position: relative;
     }
     
