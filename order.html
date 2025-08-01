@@ -1,125 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERMS - Orders Management</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ERMS - Menu Management</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
-    <div class="main-app">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <i data-lucide="chef-hat"></i>
-                <h1>ERMS</h1>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="dashboard.html" class="nav-item">
-                    <i data-lucide="bar-chart-3"></i>
-                    Dashboard
-                </a>
-                <a href="menu.html" class="nav-item">
-                    <i data-lucide="menu"></i>
-                    Menu Management
-                </a>
-                <a href="order.html" class="nav-item active">
-                    <i data-lucide="shopping-cart"></i>
-                    Orders
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <div class="user-profile">
-                    <i data-lucide="user"></i>
-                    <div class="user-info">
-                        <p class="user-name" id="userName">Manager</p>
-                        <p class="user-role">Manager</p>
-                    </div>
-                </div>
-                <a href="login.html" class="logout-btn">
-                    <i data-lucide="log-out"></i>
-                    Logout
-                </a>
-            </div>
+  <div class="main-app">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <i data-lucide="chef-hat"></i>
+        <h1>ERMS</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <i data-lucide="bar-chart-3"></i> Dashboard
+        </a>
+        <a href="menu.html" class="nav-item active">
+          <i data-lucide="menu"></i> Menu Management
+        </a>
+        <a href="order.html" class="nav-item">
+          <i data-lucide="shopping-cart"></i> Orders
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <i data-lucide="user"></i>
+          <div class="user-info">
+            <p class="user-name" id="userName">Manager</p>
+            <p class="user-role">Manager</p>
+          </div>
         </div>
-        <div class="main-content">
-            <div id="ordersPage" class="page active">
-                <div class="page-header">
-                    <div>
-                        <h2>Orders Management</h2>
-                        <p>Track and manage all restaurant orders</p>
-                    </div>
-                </div>
-                <div class="orders-table-container">
-                    <table class="orders-table">
-                        <thead>
-                            <tr>
-                                <th>Table</th>
-                                <th>Items</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Time</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ordersTableBody">
-                            <tr>
-                                <td>Table 3</td>
-                                <td>Burger, Fries, Coke</td>
-                                <td>Ksh15.50</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td>09:42 AM</td>
-                                <td>
-                                    <button class="action-btn view">View</button>
-                                    <button class="action-btn update">Update</button>
-                                    <button class="action-btn complete">Complete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Table 5</td>
-                                <td>Pizza, Lemonade</td>
-                                <td>Ksh220.00</td>
-                                <td><span class="status preparing">Preparing</span></td>
-                                <td>09:50 AM</td>
-                                <td>
-                                    <button class="action-btn view">View</button>
-                                    <button class="action-btn update">Update</button>
-                                    <button class="action-btn complete">Complete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Table 1</td>
-                                <td>Salad, Juice</td>
-                                <td>Ksh120.75</td>
-                                <td><span class="status completed">Completed</span></td>
-                                <td>08:30 AM</td>
-                                <td>
-                                    <button class="action-btn view">View</button>
-                                    <button class="action-btn update">Update</button>
-                                    <button class="action-btn complete" disabled>Complete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Table 7</td>
-                                <td>Pasta, Water</td>
-                                <td>Ksh18.25</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td>10:05 AM</td>
-                                <td>
-                                    <button class="action-btn view">View</button>
-                                    <button class="action-btn update">Update</button>
-                                    <button class="action-btn complete">Complete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <a href="login.html" class="logout-btn">
+          <i data-lucide="log-out"></i> Logout
+        </a>
+      </div>
     </div>
-    <script>
-        lucide.createIcons();
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>
+
+    <div class="main-content">
+      <div id="menuPage" class="page active">
+        <div class="page-header">
+          <div>
+            <h2>Menu Management</h2>
+            <p>Manage your restaurant's menu items</p>
+          </div>
+          <button id="addMenuBtn" class="add-btn">
