@@ -6,6 +6,17 @@
     <title>ERMS - Menu Management</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .menu-card {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <div class="main-app">
@@ -72,12 +83,13 @@
                 </div>
                 <div id="menuGrid" class="menu-grid"></div>
             </div>
+
             <!-- Menu Item Modal -->
             <div id="menuModal" class="modal hidden">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 id="modalTitle">Add New Menu Item</h3>
-                        <buttonbutton id="closeModal" title="Close" aria-label="Close modal">
+                        <button id="closeModal" title="Close" aria-label="Close modal">
                             <i data-lucide="x"></i>
                         </button>
                     </div>
@@ -95,7 +107,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="itemPrice">Price ($)</label>
+                            <label for="itemPrice">Price (Ksh)</label>
                             <input type="number" id="itemPrice" step="0.01" required>
                         </div>
                         <div class="form-group">
@@ -114,4 +126,37 @@
             </div>
         </div>
     </div>
-    <script
+
+    <!-- Load Lucide icons -->
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuItems = [
+                { name: "Beef Burger", category: "Main Course", price: 650, status: "Available" },
+                { name: "Fried Chicken Wings", category: "Appetizer", price: 400, status: "Available" },
+                { name: "Chocolate Cake", category: "Dessert", price: 300, status: "Out of Stock" },
+            ];
+
+            const menuGrid = document.getElementById("menuGrid");
+
+            function renderMenuItems(items) {
+                menuGrid.innerHTML = "";
+                items.forEach(item => {
+                    const card = document.createElement("div");
+                    card.className = "menu-card";
+                    card.innerHTML = `
+                        <h4>${item.name}</h4>
+                        <p><strong>Category:</strong> ${item.category}</p>
+                        <p><strong>Price:</strong> Ksh ${item.price}</p>
+                        <p><strong>Status:</strong> ${item.status}</p>
+                    `;
+                    menuGrid.appendChild(card);
+                });
+            }
+
+            renderMenuItems(menuItems);
+        });
+    </script>
+</body>
+</html>
