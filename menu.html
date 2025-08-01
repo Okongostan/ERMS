@@ -144,10 +144,10 @@
       const div = document.createElement("div");
       div.className = "menu-item";
       div.innerHTML = `
-        <h4>{item.name}</h4>
-        <p>Category: {item.category}</p>
-        <p>Price: Ksh {item.price.toFixed(2)}</p>
-        <p>Status: {item.status}</p>
+        <h4>${item.name}</h4>
+        <p>Category: ${item.category}</p>
+        <p>Price: Ksh ${item.price.toFixed(2)}</p>
+        <p>Status: ${item.status}</p>
       `;
       menuGrid.appendChild(div);
     });
